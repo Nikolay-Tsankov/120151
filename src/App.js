@@ -1,23 +1,14 @@
-import logo from './logo.svg';
 import './App.css';
+import {useState} from 'react';
+import PageContent from './Content';
+import LoginForm from './LoginForm';
 
 function App() {
+  let [loggedIn, setLoggedIn] = useState(false);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {loggedIn && <PageContent />}
+      {!loggedIn && <LoginForm setLoggedIn={setLoggedIn} />}
     </div>
   );
 }
