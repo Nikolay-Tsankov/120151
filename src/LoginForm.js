@@ -3,31 +3,32 @@ import { TextField, Button, Card, CardContent } from '@mui/material';
 import { useState } from 'react';
 
 const userData = [
-    { id: 1, username: 'admin', password: 'password' },
-    { id: 2, username: 'user', password: '123456' }
-  ];
-  
-function LoginForm({ setLoggedIn }) {
+    { id: 1, username: 'admin', password: 'password', admin: true },
+    { id: 2, username: 'user', password: '123456', admin: false }
+];
+
+function LoginForm({ setLoggedIn, setIsaAdmin }) {
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-          try {
+        try {
             const user = userData.find((user) => user.username === username && user.password === password);
             if (user) {
                 setLoggedIn(true);
+                if (user.admin) {
+                    setIsaAdmin(true);
+                }
             } else {
                 alert('Invalid username or password');
             }
-          }
-          catch(error) {
-            console.error('Error fetching user data:', error);
-            alert('An error occurred while fetching user data');
-          };
         }
-
+        catch (error) {
+            alert('An error occurred while fetching user data');
+        };
+    }
 
     return (
         <Card>
