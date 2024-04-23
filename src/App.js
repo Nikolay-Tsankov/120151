@@ -31,7 +31,7 @@ function App() {
   }
 
   if(isCheckout){
-    return <Checkout cart={cart} />
+    return <Checkout cart={cart} setCart={setCart} setIsCheckout={setIsCheckout} />
   }
 
   return (

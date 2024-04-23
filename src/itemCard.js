@@ -13,7 +13,7 @@ function ItemCard({item, addToCart, setPDPItem}) {
                     <span className={item.discountedPrice && "text-muted text-decoration-line-through me-2"}>${item.price}</span>
                     {item.discountedPrice && <span className="text-danger">${item.discountedPrice}</span>}
                 </div>
-                <button className="btn btn-primary" onClick={() => addToCart(item)}>Buy</button>
+                <button className="btn btn-primary" onClick={() => {addToCart(item); alert('Item added to cart!')}}>Buy</button>
             </div>
         </div>
         <div className="card-footer d-flex justify-content-center">

@@ -39,7 +39,7 @@ function PDP({ item, isaAdmin, addToCart, setPDPItem, isEditing, setIsEditing, u
                                             {currentItem.discountedPrice && <input type="text" value={currentItem.discountedPrice} onChange={(e) => setCurrentItem({ ...currentItem, discountedPrice: e.target.value })} placeholder="Item discount price" />}
                                         </div>
                                         }
-                                        {!isEditing && <button className="btn btn-primary" onClick={() => addToCart(currentItem)}>Buy</button>}
+                                        {!isEditing && <button className="btn btn-primary" onClick={() => {addToCart(currentItem); alert('Item added to cart!')}}>Buy</button>}
                                     </div>
                                     <div className="mb-3">
                                         <button className="btn btn-info me-3" onClick={() => { setIsAdding(false);setPDPItem(false) }}>Go back</button>
