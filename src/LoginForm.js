@@ -1,11 +1,7 @@
 import { Notification } from 'react-admin';
 import { TextField, Button, Card, CardContent } from '@mui/material';
 import { useState } from 'react';
-
-const userData = [
-    { id: 1, username: 'admin', password: 'password', admin: true },
-    { id: 2, username: 'user', password: '123456', admin: false }
-];
+import { getUsers } from './databaseMock';
 
 function LoginForm({ setLoggedIn, setIsaAdmin }) {
 
@@ -15,7 +11,7 @@ function LoginForm({ setLoggedIn, setIsaAdmin }) {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const user = userData.find((user) => user.username === username && user.password === password);
+            const user = getUsers().find((user) => user.username === username && user.password === password);
             if (user) {
                 setLoggedIn(true);
                 if (user.admin) {

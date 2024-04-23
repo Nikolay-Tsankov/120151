@@ -1,56 +1,16 @@
-import React from 'react';
 import ItemCard from './itemCard';
 
-const items = [
-  {
-    id: 1,
-    image: 'https://cache1.24chasa.bg/Images/Cache/187/Image_17709187_40_0.jpg',
-    name: 'Item 1',
-    description: 'Description 1',
-    descriptionLong: 'Description 1',
-    price: 10,
-    discountedPrice: 10,
-    quantity: 5
-  },
-  {
-    id: 3,
-    image: 'https://cache1.24chasa.bg/Images/Cache/187/Image_17709187_40_0.jpg',
-    name: 'Item 1',
-    description: 'Description 1',
-    descriptionLong: 'Description 1',
-    price: 10,
-    discountedPrice: 10,
-    quantity: 5
-  },
-  {
-    id: 4,
-    image: 'https://cache1.24chasa.bg/Images/Cache/187/Image_17709187_40_0.jpg',
-    name: 'Item 1',
-    description: 'Description 1',
-    descriptionLong: 'Description 1',
-    price: 10,
-    discountedPrice: 10,
-    quantity: 5
-  },
-  {
-    id: 5,
-    image: 'https://cache1.24chasa.bg/Images/Cache/187/Image_17709187_40_0.jpg',
-    name: 'Item 1',
-    descriptionLong: 'Description 1',
-    description: 'Description 1',
-    price: 10,
-    quantity: 5
-  }
-];
-
-
-function PageContent({ isaAdmin, addToCart, setPDPItem }) {
+function PageContent({ isaAdmin, addToCart, setPDPItem, items, setIsAdding, setIsEditing, setIsCheckout }) {
   return (
     <div className="container">
       <div className="row">
         {items.map(item => {
-          return (<ItemCard key={item.id} item={item} isaAdmin={isaAdmin} addToCart={addToCart} setPDPItem={setPDPItem} ></ItemCard>)
+          return (<ItemCard key={item.id} item={item} addToCart={addToCart} setPDPItem={setPDPItem} ></ItemCard>)
         })}
+      </div>
+      <div className="d-flex justify-content-center">
+        {isaAdmin && <button className="btn btn-secondary me-2" onClick={() => { setIsEditing(true); setIsAdding(true) }}>Add item</button>}
+        <button className="btn btn-primary" onClick={() => { setIsCheckout(true) }}>Checkout</button>
       </div>
     </div>
   );

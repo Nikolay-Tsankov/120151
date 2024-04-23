@@ -1,6 +1,6 @@
-function ItemCard({item, isaAdmin, addToCart, setPDPItem}) {
+function ItemCard({item, addToCart, setPDPItem}) {
   return (
-    <div className="col-3">
+    <div className="col-3 mt-4 mb-4">
         <div className="card">
         <div className="row">
             <img src={item.image} className="card-img-top" alt={item.name} />
